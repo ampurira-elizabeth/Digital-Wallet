@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounts List</title>
+</head>
+<body   style="background-color: pink;" >
+    <table class="card" style="height: 30rem;margin: 40px; width: 60%; position: fixed; margin-left: 20%; margin-top: 10%; border: 10px solid rgb(251, 250, 250); "  >
+        <th style="font-size: 30px; text-align: center; " > Account_name</th>
+        <th style="font-size: 30px; text-align: center; "  >Account_number</th>
+        <th style="font-size: 30px; text-align: center; "  >Customer</th>
+        {%for account in accounts%}
+        <th>
+            
+            <tr>
+                <td style="color: white; background-color: black; text-align: center; "  >{{account.account_name}}</td>
+                <td style="color: white; background-color: black; text-align: center; "  >{{account.account_number}}</td>
+                <td style="color: white; background-color: black; text-align: center; " >{{account.customer}}</td>
+            </tr>
+            {%endfor%}
+        </th>
+    </table>
+</body>
+</html>

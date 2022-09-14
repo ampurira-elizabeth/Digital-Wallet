@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallets List</title>
+</head>
+<body style="background-color: pink;"  >
+    <table class="table" style="height: 30rem;margin: 40px; width: 60%; position: fixed; margin-left: 20%; margin-top: 10%; border: 10px solid rgb(251, 250, 250); border-width: 30px; " >
+       
+        <td style="font-size: 30px; text-align: center; "   >Customer_id</td>
+        <td style="font-size: 30px; text-align: center; "   > Status</td>
+        <td style="font-size: 30px; text-align: center; "   > Date</td>
+    </th>
+        {%for wallet in wallets%}
+        <th>
+            <tr>
+                <td style="color: white; background-color: black; text-align: center; "  >{{wallet.customer_id}}</td>
+                <td style="color: white; background-color: black; text-align: center; "  >{{wallet.status}}</td>
+                <td style="color: white; background-color: black; text-align: center; "  >{{wallet.date}}</td>
+            </tr>
+            {%endfor%}
+        </th>
+    </table>
+</body>
+</html>
