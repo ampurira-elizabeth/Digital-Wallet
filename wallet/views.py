@@ -140,3 +140,21 @@ def list_thirdparty(request):
 def list_card(request):
     cards= models.Card.objects.all()
     return render(request,"wallet/card_list.html",{"cards":cards})
+
+# rendering one model
+
+def Customer_profile(request,id):
+    customer=models.Customer.objects.get(id=id)
+    return render(request,"wallet/customer_profile.html",{"customer":customer})
+
+def edit_Customer(request, id):
+    customer= models.Customer.objects.get(id=id)
+    if request.method== "POST":
+        form=forms.CustomerRegistrationForm(request.POST, instance=customer)
+        
+    if form. is_valid():
+        form.save()
+        return _Redirect("Customer_profile",id= customer.id)
+    else:
+        form= forms.CustomerRegistrationForm(instance=customer)
+        return render(request,"wallet/edit_customer.html",{"form":form})

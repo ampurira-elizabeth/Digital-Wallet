@@ -25,6 +25,10 @@ urlpatterns=[
     path("rewards/",views.list_reward,name="listreward"),
     path("notifications/",views.list_notifications,name="listnotification"),
     path("thirdpartys/",views.list_thirdparty,name="listthirdparty"),
-    path("cards/",views.list_card,name="listcard")
+    path("cards/",views.list_card,name="listcard"),
+    
+    path("customers/<int:id/",views.Customer_profile, name="customer-profile"),
+    path("customers/edit/<int:id", views.edit_Customer, name="edit_customer")
+    
     
  ]

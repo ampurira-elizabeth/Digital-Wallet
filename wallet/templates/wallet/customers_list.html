@@ -16,17 +16,21 @@
             <td style="color: white; background-color: rgb(165, 224, 235); font-size: 30px; text-align: center;  ">Name</td>
             <td style="color:white; background-color: #dfb1f8;font-size: 30px; text-align: center;  ">Email</td>
             <td style="color: white; background-color: rgb(21, 245, 155); font-size: 30px;text-align: center;   ">age</td>
+            <td style="color:white; background-color: #9f3dd3;font-size: 30px; text-align: center;  ">Profile</td>
+            <td style="color:white; background-color: #918e93;font-size: 30px; text-align: center;  ">Edit profile>
+
         </th>
 
-
         <tr> {%for customer in customers%}</tr>
-        
-          
+
                 <td style="color: white; background-color: black; text-align: center;"   >{{customer.first_name}}</td>
                 <td style="color: white; background-color: black; text-align: center; " >{{customer.email}}</td>
                 <td style="color: white; background-color: black; text-align: center; " >{{customer.age}}</td>
-            
+                <td  style="color: white; background-color: black; text-align: center;"  ><a href="{%url 'customer-profile'id= customer.id% }"> profile</a></td>
+                <td style="color: white; background-color: black; text-align: center;"   ><a href="{%url 'edit_customer'id= customer.id% }"> Edit profile</a></td>
+
             {%endfor%}
+
         
     </table>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
