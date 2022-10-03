@@ -27,8 +27,19 @@ urlpatterns=[
     path("thirdpartys/",views.list_thirdparty,name="listthirdparty"),
     path("cards/",views.list_card,name="listcard"),
     
-    path("customers/<int:id/",views.Customer_profile, name="customer-profile"),
-    path("customers/edit/<int:id", views.edit_Customer, name="edit_customer")
+    path("one/<int:id>/",  views.Customer_profile, name="Customer_profile"),
+    path("customers/edit/<int:id>/", views.edit_Customer, name="edit_Customer"),
+    path("two/<int:id>/", views.Wallet_profile, name="Wallet_profile" ),
+    path("wallet/edit/<int:id>/",views.edit_wallet, name="edit_wallet"),
+    path("three/<int:id>/", views.Account_profile, name="Account_profile"),
+    path("account/edit/<int:id>/", views.edit_account, name="edit_Account"),
+    path("four/<int:id>/", views.Card_profile, name="card_profile"),
+    path("card/edit/<int:id>/", views.edit_card, name="edit_Card"),
+    path("five/<int:id>/", views.transaction_profile, name="transaction_profile"),
+    path("transaction/edit/<int:id>/", views.edit_transaction, name="edit_transaction"),
+    path("six/<int:id>/", views.receipt_profile, name="receipt_profile"),
+    path("receipt/<int:id>/",views.edit_receipt, name="edit_transaction")
+    
     
     
  ]
