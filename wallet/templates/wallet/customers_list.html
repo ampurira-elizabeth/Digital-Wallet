@@ -26,8 +26,8 @@
                 <td style="color: white; background-color: black; text-align: center;"   >{{customer.first_name}}</td>
                 <td style="color: white; background-color: black; text-align: center; " >{{customer.email}}</td>
                 <td style="color: white; background-color: black; text-align: center; " >{{customer.age}}</td>
-                <td  style="color: white; background-color: black; text-align: center;"  ><a href="{%url 'customer-profile'id= customer.id% }"> profile</a></td>
-                <td style="color: white; background-color: black; text-align: center;"   ><a href="{%url 'edit_customer'id= customer.id% }"> Edit profile</a></td>
+                <td  style="color: white; background-color: black; text-align: center;"  ><a href="{% url 'customer-profile' id= customer.id % }"> profile</a></td>
+                <td style="color: white; background-color: black; text-align: center;"  ><a href="{% url 'edit_customer' id= customer.id % }"> Edit profile</a></td>
 
             {%endfor%}
 
