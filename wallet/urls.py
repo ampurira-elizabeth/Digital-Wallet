@@ -38,8 +38,8 @@ urlpatterns=[
     path("five/<int:id>/", views.transaction_profile, name="transaction_profile"),
     path("transaction/edit/<int:id>/", views.edit_transaction, name="edit_transaction"),
     path("six/<int:id>/", views.receipt_profile, name="receipt_profile"),
-    path("receipt/<int:id>/",views.edit_receipt, name="edit_transaction")
+    path("receipt/<int:id>/",views.edit_receipt, name="edit_transaction"),
     
-    
+
     
  ]

@@ -4,6 +4,7 @@ from . import forms
 from . import models
 import wallet
 
+
 # Create your views here.
 def register_customer(request):
     if request.method=="POST":
@@ -239,8 +240,8 @@ def edit_receipt(request, id):
         form= forms. ReceiptRegistrationForm(instance=receipt)
         return render(request,"wallet/edit_receipt.html",{"receipt":receipt})    
 
+# /////       
        
-        
         
     
         

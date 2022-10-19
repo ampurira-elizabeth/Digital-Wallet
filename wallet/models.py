@@ -34,7 +34,36 @@ class Account(models.Model):
     customer=models.ForeignKey('Customer',on_delete=models.CASCADE,related_name='Account_customer')
     balance=models.IntegerField()
     wallet=models.ForeignKey('Wallet',on_delete=models.CASCADE,related_name='Account_wallet')
-    account_type=models.CharField(max_length=30,null=True)  
+    account_type=models.CharField(max_length=30,null=True) 
+    def deposit(self, amount):
+       if amount <= 0:
+           message =  "Invalid amount"
+           status = 403
+       else:
+           self.account_balance += amount
+           self.save()
+           message = f"You have deposited {amount}, your new balance is {self.account_balance}"
+           status = 200
+       return message, status
+   
+    def transfer(self, destination, amount):
+       if amount <= 0:
+           message =  "Invalid amount"
+           status = 403
+      
+       elif amount < self.account_balance:
+           message =  "Insufficient balance"
+           status = 403
+      
+       else:
+           self.account_balance -= amount
+           self.save()
+           destination.deposit(amount)
+          
+           message = f"You have transfered {amount}, your new balance is {self.account_balance}"
+           status = 200
+       return message, status
+     
      
 class Transaction(models.Model):
     transaction_ref=models.CharField(max_length=20,null=True)
@@ -72,7 +101,7 @@ class Loan(models.Model):
 
 class Reward(models.Model):
     name=models.CharField(max_length=20,null=True)
-    customer_id=models.IntegerField(max_length=10,null=True)  
+    customer_id=models.IntegerField(null=True)  
     receipt=models.ForeignKey('Customer',on_delete=models.CASCADE,related_name='Reward_receipt')
     transaction=models.ForeignKey('Account',on_delete=models.CASCADE,related_name='Reward_transaction')
     date_and_time=models.DateTimeField(default=timezone.now)
@@ -93,7 +122,7 @@ class ThirdParty(models.Model):
     location=models.ForeignKey('Customer',on_delete=models.CASCADE,related_name='ThirdPsrty_location')
     
 class Card(models.Model):
-    cardholder_number=models.IntegerField(max_length=15,null=True)
+    cardholder_number=models.IntegerField(null=True)
     Cardholder_name=models.CharField(max_length=20,null=True)
     Expiry_date=models.DateTimeField(default=timezone.now)
     Date_issued=models.DateTimeField(default=timezone.now)
